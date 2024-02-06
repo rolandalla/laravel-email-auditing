@@ -1,0 +1,35 @@
+{
+    "name": "rolandalla/laravel-email-auditing",
+    "description": "The Email Auditing Service tracks all outgoing emails from your system, storing them in the `email_auditing` table.",
+    "type": "library",
+    "version": "0.1.0",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Roland\\LaravelEmailAuditing\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Roland\\LaravelEmailAuditing\\Tests\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Roland",
+            "email": "info@rolandalla.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Roland\\LaravelEmailAuditing\\EmailAuditingServiceProvider"
+            ],
+            "aliases": {
+                "EmailAuditing": "Roland\\LaravelEmailAuditing\\Models\\EmailAuditing"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
