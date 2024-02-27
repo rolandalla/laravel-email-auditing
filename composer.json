@@ -2,7 +2,7 @@
     "name": "rolandalla/laravel-email-auditing",
     "description": "The Email Auditing Service tracks all outgoing emails from your system, storing them in the `email_auditing` table.",
     "type": "library",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "license": "MIT",
     "autoload": {
         "psr-4": {
