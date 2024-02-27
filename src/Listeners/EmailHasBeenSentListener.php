@@ -20,7 +20,7 @@ class EmailHasBeenSentListener
             $attachments = $this->parseAttachments($event->message->getAttachments());
             $from = $event->message->getFrom()[0]->getAddress();
             $body = $this->parseBodyText($event->message->getTextBody());
-            $user = ($event->data['user']) ? $event->data['user']->id : ((auth()) ? auth()->id() : null);
+            $user = (isset($event->data['user'])) ? $event->data['user']->id : ((auth()) ? auth()->id() : null);
 
             EmailAuditing::create([
                 'user_id' => $user,
