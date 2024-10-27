@@ -1,17 +1,15 @@
 <?php
 
-namespace  Roland\LaravelEmailAuditing\Tests;
+namespace Roland\LaravelEmailAuditing\Tests;
 
+use Illuminate\Mail\Events\MessageSent;
 use Illuminate\Support\Facades\Event;
 use Roland\LaravelEmailAuditing\EmailAuditingServiceProvider;
-use Illuminate\Mail\Events\MessageSent;
 use Roland\LaravelEmailAuditing\Listeners\EmailHasBeenSentListener;
 use Tests\TestCase;
 
 class EmailAuditServiceProviderTest extends TestCase
 {
-
-
     /** @test */
     public function it_registers_email_audit_listener()
     {

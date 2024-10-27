@@ -2,9 +2,9 @@
 
 namespace Roland\LaravelEmailAuditing\Listeners;
 
+use Illuminate\Mail\Events\MessageSent;
 use Illuminate\Support\Facades\Log;
 use Roland\LaravelEmailAuditing\Models\EmailAuditing;
-use Illuminate\Mail\Events\MessageSent;
 
 class EmailHasBeenSentListener
 {
@@ -27,14 +27,14 @@ class EmailHasBeenSentListener
                 'from' => $from,
                 'to' => json_encode($toArr),
                 'replyTo' => json_encode($replyToArr),
-                'cc' => $ccArr ? json_encode($ccArr) : NULL,
-                'bcc' => $bccArr ? json_encode($bccArr) : NULL,
-                'attachments' => $attachments ? json_encode($attachments) : NULL,
+                'cc' => $ccArr ? json_encode($ccArr) : null,
+                'bcc' => $bccArr ? json_encode($bccArr) : null,
+                'attachments' => $attachments ? json_encode($attachments) : null,
                 'subject' => $subject,
                 'body' => $body,
             ]);
         } catch (\Exception $e) {
-           Log::alert('Email Auditing Error: ' . $e->getMessage());
+            Log::alert('Email Auditing Error: '.$e->getMessage());
         }
     }
 
@@ -44,6 +44,7 @@ class EmailHasBeenSentListener
         foreach ($array as $address) {
             $parsed[] = $address->getAddress();
         }
+
         return $parsed;
     }
 
@@ -54,6 +55,7 @@ class EmailHasBeenSentListener
         foreach ($attachments as $attachment) {
             $parsed[] = $attachment->getFilename();
         }
+
         return $parsed;
     }
 

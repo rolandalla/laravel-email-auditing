@@ -29,7 +29,7 @@ return new class extends Migration
                 $table->foreign('user_id')->references('id')->on('users')->onCascade('delete');
             });
         } catch (\Exception $e) {
-            return "Table already exists";
+            return 'Table already exists';
         }
     }
 
